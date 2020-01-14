@@ -27,6 +27,7 @@ public class Subsets78 {
             recursion(i + 1, nums, list);
             list.remove(list.size() - 1);
         }
+
     }
 
     public static void main(String[] args) {
