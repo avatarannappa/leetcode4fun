@@ -17,13 +17,12 @@ public class IsPalindrome234 {
             list.add(head.val);
             head = head.next;
         }
-        for (int i = list.size() - 1; i >= 0; i--) {
+        int half = list.size() / 2;
+        for (int i = list.size() - 1; i >= half; i--) {
             if (!list.get(i).equals(list.get(list.size() - 1 - i))) {
                 return false;
             }
-            if (i > list.size() / 2) {
-
-            }
-        } return true;
+        }
+        return true;
     }
 }
