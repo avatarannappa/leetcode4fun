@@ -10,6 +10,32 @@ import java.util.Set;
 public class DetectCycle142 {
 
     public ListNode detectCycle(ListNode head) {
+        ListNode s = head;
+        ListNode f = head;
+        boolean cycle = false;
+        while (f != null) {
+            s = s.next;
+            f = f.next;
+            if (f == null) {
+                return null;
+            }
+            f = f.next;
+            if (s == f) {
+                cycle = true;
+                break;
+            }
+        }
+        if (cycle) {
+            while (head != s) {
+                head = head.next;
+                s = s.next;
+            }
+            return head;
+        }
+        return null;
+    }
+
+    public ListNode detectCycleUseSet(ListNode head) {
         Set<ListNode> set = new HashSet<>();
         while (head != null) {
             if (set.contains(head)) {
