@@ -11,12 +11,18 @@ public class ListNode {
         val = x;
     }
 
+//    @Override
+//    public String toString() {
+    // 输出列表
+//        final StringBuilder sb = new StringBuilder("ListNode{");
+//        sb.append("val=").append(val);
+//        sb.append(", next=").append(next);
+//        sb.append('}');
+//        return sb.toString();
+//    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ListNode{");
-        sb.append("val=").append(val);
-        sb.append(", next=").append(next);
-        sb.append('}');
-        return sb.toString();
+        return val + "";
     }
 }
