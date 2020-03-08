@@ -6,7 +6,7 @@ import java.util.List;
  * 面试题57 - II. 和为s的连续正数序列
  *
  * @author avatarannappa
- * @version 1.0, 2020/3/6
+ * @version 1.0, 2020/3/7
  */
 public class FindContinuousSequence57M {
 
