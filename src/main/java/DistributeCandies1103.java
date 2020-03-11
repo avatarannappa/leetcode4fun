@@ -22,17 +22,20 @@ public class DistributeCandies1103 {
             left = left - temp;
         }
 
+        int n = 0;
+        if (times > 0) {
+            n = (times - 1) * times / 2;
+        }
         for (int i = 0; i < result.length; i++) {
             int j = i + 1;
-            result[i] = num_people * times + j * (times + 1);
-
-            if (left < result[i] && left > 0) {
-                result[i] = result[i] - j + left;
+            result[i] = num_people * n + j * times;
+            int next = num_people * times + j;
+            if (left < next && left > 0) {
+                result[i] = result[i] + left;
                 left = left - result[i];
-            } else if (left >= result[i]) {
-                left = left - result[i];
-            } else {
-                result[i] = result[i] - num_people - j;
+            } else if (left >= next) {
+                result[i] += next;
+                left = left - next;
             }
 
         }
@@ -40,6 +43,6 @@ public class DistributeCandies1103 {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new DistributeCandies1103().distributeCandies(55, 3)));
+        System.out.println(Arrays.toString(new DistributeCandies1103().distributeCandies(8899, 5)));
     }
 }
