@@ -7,9 +7,15 @@
 public class IsRectangleOverlap836 {
 
     public boolean isRectangleOverlap(int[] rec1, int[] rec2) {
+        // x y投影
         boolean x = !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0]);
         boolean y = !(rec1[3] <= rec2[1] || rec2[3] <= rec1[1]);
         return x && y;
+    }
+
+    public boolean isRectangleOverlapOld(int[] rec1, int[] rec2) {
+        // !不重叠
+        return !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0] || rec1[3] <= rec2[1] || rec2[3] <= rec1[1]);
     }
 
     public static void main(String[] args) {
