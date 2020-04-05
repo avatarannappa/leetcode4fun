@@ -3,7 +3,7 @@
  * 263. 丑数.
  *
  * @author avatarannappa
- * @version 1.0, 2020/4/3
+ * @version 1.0, 2020/4/4
  */
 public class IsUgly263 {
 
