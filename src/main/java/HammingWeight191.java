@@ -1,6 +1,7 @@
 /**
  * 191. 位1的个数
  * 编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。
+ *
  * @author avatarannappa
  * @version 1.0, 2019/10/26
  */
@@ -15,6 +16,16 @@ public class HammingWeight191 {
             }
         }
         return weight;
+    }
+
+    public int hammingWeightNew(int n) {
+        // 不断翻转最后一位1，时间复杂度O(1)
+        int sum = 0;
+        while (n != 0) {
+            sum++;
+            n &= (n - 1);
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
