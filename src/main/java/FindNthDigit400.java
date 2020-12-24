@@ -24,6 +24,7 @@ public class FindNthDigit400 {
     }
 
     public static void main(String[] args) {
+        // 可以扩展一下，从M开始，第N个数字。先把M位数算出来，然后重载findNthDigit
         int n = 365;
         System.out.println(new FindNthDigit400().findNthDigit(n));
     }
