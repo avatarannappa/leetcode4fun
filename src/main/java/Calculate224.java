@@ -72,11 +72,14 @@ public class Calculate224 {
         for (String s : list) {
             switch (s) {
                 case "+":
-                    value.push(value.pop() + value.pop());
+                    Double t1 = value.pop();
+                    Double t2 = value.empty() ? 0.0 : value.pop();
+                    value.push(t1 + t2);
                     break;
                 case "-":
-                    Double temp = value.pop();
-                    value.push(value.pop() - temp);
+                    t1 = value.pop();
+                    t2 = value.empty() ? 0.0 : value.pop();
+                    value.push(t2 - t1);
                     break;
                 case "*":
                     value.push(value.pop() * value.pop());
@@ -94,7 +97,7 @@ public class Calculate224 {
 
     public static void main(String[] args) {
         // String s = "(1+(4+5+2)-3)+(6+8)";
-        String s = " 30";
+        String s = "-2+ 1";
         System.out.println(new Calculate224().calculate(s));
     }
 }
