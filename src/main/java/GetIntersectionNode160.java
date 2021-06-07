@@ -5,7 +5,7 @@ import java.util.Set;
  * 160. 相交链表.
  *
  * @author avatarannappa
- * @version 1.0, 2019/12/27
+ * @version 1.1, 2021/6/7
  */
 public class GetIntersectionNode160 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
@@ -13,11 +13,11 @@ public class GetIntersectionNode160 {
             return null;
         }
         Set<ListNode> setA = new HashSet<>();
-        while (headA!=null) {
+        while (headA != null) {
             setA.add(headA);
             headA = headA.next;
         }
-        while (headB!=null) {
+        while (headB != null) {
             if (setA.contains(headB)) {
                 return headB;
             }
@@ -39,5 +39,15 @@ public class GetIntersectionNode160 {
             indexA = indexA.next;
         }
         return null;
+    }
+
+    public ListNode getIntersectionNodeDoublePointer(ListNode headA, ListNode headB) {
+        ListNode A = headA;
+        ListNode B = headB;
+        while (A != B) {
+            A = A == null ? headB : A.next;
+            B = B == null ? headA : B.next;
+        }
+        return A;
     }
 }
