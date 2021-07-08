@@ -2,10 +2,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 1. 两数之和
+ * easy
+ *
  * @author avatarannappa
  * @version 1.0, 2018/12/18
+ * 1.1 2021/07/07 优化哈希表写法
  */
-public class TwoSum {
+public class TwoSum1 {
 
     public static void main(String[] args) {
         int[] nums =
@@ -44,17 +48,16 @@ public class TwoSum {
     }
 
     public static int[] twoSum2(int[] nums, int target) {
+        // 哈希表 同类：1711
         int[] result = new int[2];
         Map<Integer, Integer> maps = new HashMap<Integer, Integer>();
-        Map<Integer, Integer> maps1 = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
-            if (maps1.containsKey(nums[i])) {
+            if (maps.containsKey(target - nums[i])) {
                 result[0] = maps.get(target - nums[i]);
                 result[1] = i;
                 break;
             }
             maps.put(nums[i], i);
-            maps1.put(target - nums[i], i);
         }
         return result;
     }
