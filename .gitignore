@@ -7,3 +7,10 @@
 ### build
 /target/
 **/target/
+
+### vscode
+.classpath
+.project
+.settings/
+.vscode/
+
