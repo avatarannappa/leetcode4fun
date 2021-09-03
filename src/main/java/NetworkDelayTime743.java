@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 743. 网络延迟时间 medium
+ * 743. 网络延迟时间 medium 图
  *
  * @author avatarannappa
  * @version 1.0
@@ -14,9 +14,8 @@ public class NetworkDelayTime743 {
 
     static int INTMAX = 0x3f3f3f3f;
 
-    /* BFS */
     public int networkDelayTime(int[][] times, int n, int k) {
-        // 建图 - 邻接表
+        // 建邻接表
         Map<Integer, Map<Integer, Integer>> mp = new HashMap<>();
         for (int[] edg : times) {
             if (!mp.containsKey(edg[0])) {
@@ -24,14 +23,14 @@ public class NetworkDelayTime743 {
             }
             mp.get(edg[0]).put(edg[1], edg[2]);
         }
-        // 记录结点最早收到信号的时间 
+
         int[] r = new int[n + 1];
         for (int i = 1; i <= n; ++i) {
             r[i] = INTMAX;
         }
         r[k] = 0;
 
-        // 队列中存放 [结点，收到信号时间]
+        // bfs
         Deque<int[]> s = new ArrayDeque<>();
         s.addLast(new int[]{k, 0});
 
