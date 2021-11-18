@@ -12,6 +12,7 @@ import java.util.TreeSet;
 public class LongestWord720 {
     public String longestWord(String[] words) {
         // trie树，不想写
+        // 只把有前缀的或长度唯一的入set，会少一层遍历word，也懒得写
         String ans = "";
         Set<String> set = new TreeSet<>(Arrays.asList(words));
         for (String word : words) {
