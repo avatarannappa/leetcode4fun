@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -5,10 +7,36 @@ import java.util.LinkedList;
  *
  * @author avatarannappa
  * @version 1.0, 2020/5/29
+ * @version 1.1, 2022/1/13
  */
 public class SimplifyPath71 {
 
     public String simplifyPath(String path) {
+        // 修复badcase "/hello../world" -> 结果：“/hello../world”
+        String[] names = path.split("/");
+        Deque<String> stack = new ArrayDeque<String>();
+        for (String name : names) {
+            if ("..".equals(name)) {
+                if (!stack.isEmpty()) {
+                    stack.pollLast();
+                }
+            } else if (name.length() > 0 && !".".equals(name)) {
+                stack.offerLast(name);
+            }
+        }
+        StringBuilder ans = new StringBuilder();
+        if (stack.isEmpty()) {
+            ans.append('/');
+        } else {
+            while (!stack.isEmpty()) {
+                ans.append('/');
+                ans.append(stack.pollFirst());
+            }
+        }
+        return ans.toString();
+    }
+
+    public String simplifyPathOld(String path) {
         StringBuilder result = new StringBuilder();
         char[] arr = path.toCharArray();
         LinkedList<String> list = new LinkedList<>();
@@ -58,7 +86,7 @@ public class SimplifyPath71 {
     }
 
     public static void main(String[] args) {
-        String path = "/home/foo";
+        String path = "/hello../world";
         System.out.println(new SimplifyPath71().simplifyPath(path));
     }
 }
