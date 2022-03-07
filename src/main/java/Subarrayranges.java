@@ -10,6 +10,7 @@ public class Subarrayranges {
 
     public long subArrayRangesTODO(int[] nums) {
         // TODO 单调栈 O(n)
+        return 0;
     }
     
     public long subArrayRanges(int[] nums) {
