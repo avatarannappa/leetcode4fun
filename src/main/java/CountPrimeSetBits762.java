@@ -2,6 +2,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 762. 二进制表示中质数个计算置位.
+ * easy
+ *
  * @author avatarannappa
  * @version 1.0
  * @date 2022/4/6
