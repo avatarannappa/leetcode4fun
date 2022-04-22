@@ -12,54 +12,41 @@ public class PlatesBetweenCandles2055 {
 
     public int[] platesBetweenCandles(String s, int[][] queries) {
         // 前缀和+区间映射，query[0]的右边最近candle，query[1]的左边最近candle位置映射
-        int n = s.length();
-        int[] array = new int[n];
-        int preCandleIndex = -1;
-        // 前缀和
-        for (int i = 0; i < n; i++) {
-            char c = s.charAt(i);
-            if (c == '|') {
-                if (preCandleIndex != -1) {
-                    array[i] = array[i - 1] + i - preCandleIndex - 1;
-                    preCandleIndex = i;
-                    continue;
-                }
-                preCandleIndex = i;
-            }
-            if (i > 0) {
-                array[i] = array[i - 1];
-            }
-        }
-        // 记录candle位置
-        int[] lArray = new int[n];
-        int[] rArray = new int[n];
-        for (int i = 0; i < n; i++) {
-            if (s.charAt(i) == '|') {
-                lArray[i] = i;
-            } else {
-                lArray[i] = i == 0 ? 0 : lArray[i-1];
-            }
-            
-            int r = n - i - 1;
-            if (s.charAt(r) == '|') {
-                rArray[r] = r;
-            } else {
-                rArray[r] = r == n - 1 ? n - 1 : rArray[r + 1];
-            }
-        }
+        int len = s.length();
+        int[] sum = new int[len];
+        int[] leftCandy = new int[len];
+        int[] rightCandy = new int[len];
 
-        int[] ans = new int[queries.length];
+        int l = -1;
+        for (int i = 0; i < len; i++) {
+            if (i >= 1) {
+                sum[i] = sum[i - 1];
+            }
+            if (s.charAt(i) == '|') {
+                l = i;
+            } else {
+                sum[i]++;
+            }
+            leftCandy[i] = l;
+        }
+        
+        int r = len;
+        for (int i = len - 1; i >= 0; i--) {
+            if (s.charAt(i) == '|') {
+                r = i;
+            }
+            rightCandy[i] = r;
+        }
+        int[] res = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
-            int l = queries[i][0];
-            int r = queries[i][1];
-            // query[0]的右边最近candle，query[1]的左边最近candle位置映射。用循环超时，二分貌似可以
-            l = rArray[l];
-            r = lArray[r];
-            if (l < r) {
-                ans[i] = array[r] - array[l];
+            int[] query = queries[i];
+            if (leftCandy[query[1]] <= rightCandy[query[0]]) {
+                res[i] = 0;
+            } else {
+                res[i] = sum[leftCandy[query[1]]] - sum[rightCandy[query[0]]];
             }
         }
-        return ans;
+        return res;
     }
 
     public static void main(String[] args) {
