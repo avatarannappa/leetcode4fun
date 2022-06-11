@@ -1,4 +1,4 @@
-# leecode4fun
+# leetcode4fun
 A java maven project for leetcode, have some utils like java array to TreeNode.
 
 ## Naming Conventions
