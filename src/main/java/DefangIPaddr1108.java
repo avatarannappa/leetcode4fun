@@ -2,7 +2,7 @@
  * 1108. IP 地址无效化
  * easy
  *
- * @author chenhao138
+ * @author avatarannappa
  * @date 2022/6/22
  */
 public class DefangIPaddr1108 {
