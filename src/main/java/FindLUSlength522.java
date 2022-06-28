@@ -2,7 +2,7 @@
  * 522. 最长特殊序列 II
  * medium
  *
- * @author chenhao138
+ * @author avatarannappa
  * @date 2022/6/27
  */
 public class FindLUSlength522 {
