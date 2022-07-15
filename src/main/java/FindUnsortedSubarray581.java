@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * 581. 最短无序连续子数组
  *
- * @author chenhao15
+ * @author avatarannappa
  * @version 1.0, 2020/4/2
  */
 public class FindUnsortedSubarray581 {

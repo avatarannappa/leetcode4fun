@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * 199. 二叉树的右视图.
  *
- * @author chenhao15
+ * @author avatarannappa
  * @version 1.0, 2020/2/26
  */
 public class RightSideView199 {

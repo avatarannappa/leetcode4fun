@@ -2,7 +2,7 @@
  * 558. 四叉树交集
  * medium
  *
- * @author chenhao138
+ * @author avatarannappa
  * @date 2022/7/15
  */
 public class Intersect558 {

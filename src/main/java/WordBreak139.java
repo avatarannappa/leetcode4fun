@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * 139. 单词拆分.
  *
- * @author chenhao15
+ * @author avatarannappa
  * @version 1.0, 2020/4/30
  */
 public class WordBreak139 {

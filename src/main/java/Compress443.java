@@ -1,7 +1,7 @@
 /**
  * 443. 压缩字符串
  *
- * @author chenhao15
+ * @author avatarannappa
  * @version 1.0, 2020/4/1
  * @see CompressString0106M
  */
