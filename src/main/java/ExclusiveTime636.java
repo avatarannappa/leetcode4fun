@@ -49,9 +49,9 @@ public class ExclusiveTime636 {
     }
 
     public static void main(String[] args) {
-        int n = 1;
-        List<String> logs = List.of("0:start:0", "0:start:2", "0:end:5", "0:start:6", "0:end:6", "0:end:7");
-        // 8
-        System.out.println(Arrays.toString(new ExclusiveTime636().exclusiveTime(n, logs)));
+//        int n = 1;
+//        List<String> logs = List.of("0:start:0", "0:start:2", "0:end:5", "0:start:6", "0:end:6", "0:end:7");
+//        // 8
+//        System.out.println(Arrays.toString(new ExclusiveTime636().exclusiveTime(n, logs)));
     }
 }
