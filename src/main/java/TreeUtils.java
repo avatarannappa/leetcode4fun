@@ -24,6 +24,9 @@ public class TreeUtils {
             }
             list.add(node);
 
+            while (list.get(index) == null) {
+                index++;
+            }
             TreeNode now = list.get(index);
             if (col == 0) {
                 // left
