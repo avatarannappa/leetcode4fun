@@ -4,7 +4,8 @@ import java.util.PriorityQueue;
 
 /**
  * 502. IPO
- *
+ * hard
+ * 
  * @author avatarannappa
  * @version 1.0, 2022/10/12
  */
@@ -25,15 +26,15 @@ public class FindMaximizedCapital502 {
         PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
         int i = 0;
         for (; k > 0; k--) {
-            for (;i<n && arr[i][0] <= w;i++) {
+            for (; i < n && arr[i][0] <= w; i++) {
                 queue.add(arr[i][1]);
             }
-            
+
             if (queue.isEmpty()) {
                 // 资本不够，进行不下去了
                 break;
             }
-            
+
             // w是递增的，queue中只要有数据就能用
             w += queue.poll();
         }
