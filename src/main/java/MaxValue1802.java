@@ -13,6 +13,9 @@ public class MaxValue1802 {
         int left = 1;
         int right = maxSum;
         while (left < right) {
+            // 为什么这里 (left + right + 1) / 2 而不是 (left + right) / 2
+            // 因为return left，left是值域。如果 left = mid + 1，可以用 (left + right) / 2。
+            // 如：maxValueTest
             int mid =  (left + right + 1) / 2;
             if (valid(mid, n, index, maxSum)) {
                 left = mid;
@@ -21,6 +24,22 @@ public class MaxValue1802 {
             }
         }
         return left;
+    }
+
+    public int maxValueTest(int n, int index, int maxSum) {
+        int left = 1;
+        int right = maxSum;
+        int ans = 1;
+        while (left <= right) {
+            int mid =  (left + right) / 2;
+            if (valid(mid, n, index, maxSum)) {
+                left = mid + 1;
+                ans = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return ans;
     }
 
     public boolean valid(int nowNum, int n, int index, int maxSum) {
