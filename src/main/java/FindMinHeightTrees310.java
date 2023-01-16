@@ -17,6 +17,7 @@ public class FindMinHeightTrees310 {
         // 证明：根是树最远两点的中间点，根节点：偶数长度，两种根节点可能，奇数长度，一个根节点
         // 找距离最远的两点算法，BFS or DFS
         // TODO DFS or 拓扑排序 or 动态规划
+        // link 543.树的直径
         List<Integer> ans = new ArrayList<Integer>();
         if (n == 1) {
             ans.add(0);
