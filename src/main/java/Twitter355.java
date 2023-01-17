@@ -22,6 +22,7 @@ public class Twitter355 {
     }
 
     int index = 0;
+
     public static class Node {
 
         int time;
@@ -48,6 +49,8 @@ public class Twitter355 {
     Map<Integer, Deque<Node>> postMap = new HashMap<>();
 
     public void postTweet(int userId, int tweetId) {
+        // 设计(哈希表+优先队列+多路归并,推模式or拉模式)
+        // 这里是拉模式，及用户登录后拉取自己和自己关注的用户最近10条推特
         Deque<Node> postList = postMap.getOrDefault(userId, new ArrayDeque<>());
         Node node = new Node();
         node.setTime(index++);
