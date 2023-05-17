@@ -20,6 +20,11 @@ public class HaveConflict2446 {
         return false;
     }
 
+    public boolean haveConflictNew(String[] event1, String[] event2) {
+        // 直接比较字符串
+        return !(event1[1].compareTo(event2[0]) < 0 || event2[1].compareTo(event1[0]) < 0);
+    }
+
     private Integer parse(String time) {
         String[] arr = time.split(":");
         return Integer.valueOf(arr[0]) * 60 + Integer.valueOf(arr[1]);
