@@ -2,7 +2,7 @@
  * LCP 50. 宝石补给
  * easy
  *
- * @author chenhao138
+ * @author avatarannappa
  * @date 2023/9/15
  */
 public class GiveGemLCP50 {
