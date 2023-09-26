@@ -8,7 +8,9 @@
 public class PassThePillow2582 {
 
     public int passThePillow(int n, int time) {
-
+        int cnt = time / (n - 1);
+        int left = time % (n - 1);
+        return cnt % 2 == 0 ? 1 + left : n - 1;
     }
 
     public static void main(String[] args) {
