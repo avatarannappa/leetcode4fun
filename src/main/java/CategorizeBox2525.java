@@ -28,5 +28,5 @@ public class CategorizeBox2525 {
             return "Neither";
         }
     }
-    }
+    
 }
