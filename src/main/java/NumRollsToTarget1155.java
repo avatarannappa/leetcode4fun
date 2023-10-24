@@ -12,6 +12,8 @@ public class NumRollsToTarget1155 {
     int[][] cache;
 
     public int numRollsToTarget(int n, int k, int target) {
+        // 记忆化搜索（递归）
+        // TODO DP(递推)
         if (n > target || n * k < target) {
             return 0;
         }
