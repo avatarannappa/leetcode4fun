@@ -12,6 +12,28 @@ import java.util.Set;
  */
 public class MaxProduct318 {
 
+    public int maxProductNew(String[] words) {
+        int[] mask = new int[words.length];
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            for (char c : word.toCharArray()) {
+                mask[i] |= 1 << (c - 'a');
+            }
+        }
+
+        int max = 0;
+
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                if ((mask[i] & mask[j]) == 0) {
+                    max = Math.max(max, words[i].length() * words[j].length());
+                }
+            }
+        }
+
+        return max;
+    }
+
     public int maxProduct(String[] words) {
         int max = 0;
         Map<Integer, Set<Integer>> map = new HashMap<>();
