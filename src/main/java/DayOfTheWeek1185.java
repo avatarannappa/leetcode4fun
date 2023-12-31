@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Stack;
-
 /**
  * 1185. 一周中的第几天
  * easy
