@@ -43,7 +43,7 @@ public class MinLength2696 {
             if (c == 'B') {
                 if (!stack.isEmpty() && stack.peek() == 'A') {
                     stack.pop();
-                    ans += 2;
+                    ans -= 2;
                     continue;
                 }
             } else if (c == 'D') {
