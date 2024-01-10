@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * 2696. 删除子串后的字符串最小长度
  * easy
@@ -30,6 +32,30 @@ public class MinLength2696 {
                 }
             }
         } while (cont);
+        return ans;
+    }
+
+    public int minLengthNew(String s) {
+        int ans = s.length();
+
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == 'B') {
+                if (!stack.isEmpty() && stack.peek() == 'A') {
+                    stack.pop();
+                    ans += 2;
+                    continue;
+                }
+            } else if (c == 'D') {
+                if (!stack.isEmpty() && stack.peek() == 'C') {
+                    stack.pop();
+                    ans -= 2;
+                    continue;
+                }
+            }
+            stack.push(c);
+        }
+
         return ans;
     }
 
