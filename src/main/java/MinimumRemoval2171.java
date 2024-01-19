@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * 2171. 拿出最少数目的魔法豆
- * easy
+ * medium
  *
  * @author avatarannappa
  * @date 2024/1/18
