@@ -12,6 +12,7 @@ import java.util.List;
 public class MinimumTime2809 {
 
     public int minimumTime(List<Integer> nums1, List<Integer> nums2, int x) {
+        // 贪心+DP
         int n = nums1.size();
         int[][] arr = new int[n][2];
         int s1 = 0;
