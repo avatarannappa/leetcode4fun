@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 public class NumsGameLCP24 {
 
     public int[] numsGame(int[] nums) {
-        // 转换成到横线的距离问题（画图） + 中位数贪心 + 中位数记录（对顶堆）+ 距离算法（a1 - mid + a2 - mid + a3 - mid + mid - b1 + mid - b2） = sumA - sumB
+        // 坐标系转换成到横线的距离问题（画图） + 中位数贪心 + 中位数记录（对顶堆）+ 距离算法（a1 - mid + a2 - mid + a3 - mid + mid - b1 + mid - b2） = sumA - sumB
         final int MOD = 1_000_000_007;
         int[] ans = new int[nums.length];
         // 维护较小的一半，大根堆
