@@ -3,6 +3,7 @@
 *.iws
 *.iml
 *.ipr
+*.DS_store
 
 ### build
 /target/
