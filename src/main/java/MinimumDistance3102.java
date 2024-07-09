@@ -11,6 +11,7 @@ public class MinimumDistance3102 {
 
     public int minimumDistance(int[][] points) {
         // 曼哈顿距离转切比雪夫距离
+        // Math.max((a1 + b1 - (a2 + b2)), a2 + b2 - (a1 + b1), a1 - b1 - (a2 - b2), a2 - b2 - (a1 - b1))
         TreeMap<Integer, Integer> xMap = new TreeMap<>();
         TreeMap<Integer, Integer> yMap = new TreeMap<>();
         for (int[] point : points) {
