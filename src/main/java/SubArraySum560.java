@@ -50,6 +50,25 @@ public class SubArraySum560 {
         return count;
     }
 
+    public int subarraySumNew(int[] nums, int k) {
+        // 2025.03.06
+        // 前缀和+哈希表
+        int count = 0;
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];
+            int t = sum - k;
+            if (map.containsKey(t)) {
+                count += map.get(t);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         int[] nums = {1, 1, 1};
         int k = 2;
