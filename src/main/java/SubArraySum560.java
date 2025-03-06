@@ -6,6 +6,7 @@ import java.util.Map;
  *
  * @author avatarannappa
  * @version 1.0, 2020/5/19
+ * @see BeautifulSubarrays2588
  */
 public class SubArraySum560 {
 
