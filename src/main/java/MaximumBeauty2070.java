@@ -2,8 +2,6 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 
-import org.codehaus.groovy.runtime.ArrayUtil;
-
 import utils.Array2ListUtil;
 
 /**
