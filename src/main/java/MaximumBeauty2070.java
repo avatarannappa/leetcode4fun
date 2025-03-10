@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
-
 import utils.Array2ListUtil;
 
 /**
@@ -12,7 +11,44 @@ import utils.Array2ListUtil;
  * @version 1.0, 2025/03/09
  */
 public class MaximumBeauty2070 {
+    public int[] maximumBeautyNew(int[][] items, int[] queries) {
+        // 手写upperBound
+        int n = items.length;
+        Arrays.sort(items, (a, b) -> a[0] - b[0] == 0 ? a[1] - b[1] : a[0] - b[0]);
+        for (int i = 1; i < n; i++) {
+            if (items[i][1] < items[i - 1][1]) {
+                items[i][1] = items[i - 1][1];
+            }
+        }
 
+        int m = queries.length;
+        int[] res = new int[m];
+        for (int i = 0; i < m; i++) {
+            int query = queries[i];
+            int biggerIndex = upperBound(items, query);
+            if (biggerIndex > 0) {
+                res[i] = items[biggerIndex - 1][1];
+            } else {
+                res[i] = 0;
+            }
+        }
+        return res;
+    }
+
+    public int upperBound(int[][] items, int q) {
+        int l = 0;
+        int r = items.length - 1;
+        while(l <= r) {
+            int mid = l + (r - l) / 2;
+            if (items[mid][0] > q) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+    
     public int[] maximumBeauty(int[][] items, int[] queries) {
         // 排序+二分查找
         int n = items.length;
@@ -48,6 +84,6 @@ public class MaximumBeauty2070 {
         Integer[][] itemsArray = Array2ListUtil.string2Int2DArray(items);
         int[][] itemsArray2 = Array2ListUtil.convertToPrimitive2d(itemsArray);
         // 输出：[2,4,5,5,6,6]
-        System.out.println(Arrays.toString(new MaximumBeauty2070().maximumBeauty(itemsArray2, queries)));
+        System.out.println(Arrays.toString(new MaximumBeauty2070().maximumBeautyNew(itemsArray2, queries)));
     }
 }
