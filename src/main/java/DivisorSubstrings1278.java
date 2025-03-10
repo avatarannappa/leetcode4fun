@@ -10,6 +10,21 @@ import java.util.Map;
  */
 public class DivisorSubstrings1278 {
 
+    public int divisorNew(int num, int k) {
+        // 直接计算数字
+        int mask = (int) Math.pow(10, k);
+        int res = 0;
+        int t = num;
+        while (t / (mask / 10) > 0) {
+            int a = t % mask;
+            if (a > 0 && num % a == 0) {
+                res++;
+            }
+            t /= 10;
+        }
+        return res;
+    }
+
     public int divisorSubstrings(int num, int k) {
         // 数字转字符串
         int res = 0;
