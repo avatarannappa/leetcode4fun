@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author avatarannappa
  * @date 2024/7/30
- * @see MyPow 50.pow
+ * @see MyPow50 50.pow
  */
 public class GetGoodIndices2961 {
 
