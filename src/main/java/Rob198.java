@@ -7,6 +7,18 @@ import java.util.Arrays;
  * @version 1.0, 2020/2/3
  */
 public class Rob198 {
+
+    public int robNew(int[] nums) {
+        // 递推
+        // 2025/4/1
+        int n = nums.length;
+        int[] f = new int[n + 2];
+        for (int i = n - 1; i >= 0; i--) {
+            f[i] = Math.max(f[i + 1], f[i + 2] + nums[i]);
+        }
+        return f[0];
+    }
+
     public int rob(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
