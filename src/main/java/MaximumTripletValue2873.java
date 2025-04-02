@@ -4,6 +4,7 @@
  *
  * @author avatarannappa
  * @version 2025/4/2
+ * @see MaximumTripletValue2874
  */
 public class MaximumTripletValue2873 {
 
