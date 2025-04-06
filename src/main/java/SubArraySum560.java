@@ -6,6 +6,7 @@ import java.util.Map;
  *
  * @author avatarannappa
  * @version 1.0, 2020/5/19
+ * @see BeautifulSubarrays2588
  */
 public class SubArraySum560 {
 
@@ -46,6 +47,25 @@ public class SubArraySum560 {
                     count++;
                 }
             }
+        }
+        return count;
+    }
+
+    public int subarraySumNew(int[] nums, int k) {
+        // 2025.03.06
+        // 前缀和+哈希表
+        int count = 0;
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];
+            int t = sum - k;
+            if (map.containsKey(t)) {
+                count += map.get(t);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return count;
     }

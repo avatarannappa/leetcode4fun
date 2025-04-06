@@ -35,8 +35,45 @@ public class ReverseWords151 {
         return result;
     }
 
+    public String reverseWordsNew(String s) {
+        s = s.trim();
+        String ss = "";
+        for (int i = 0; i < s.length(); i++) {
+            char now = s.charAt(i);
+            if (now == ' ' && s.charAt(i - 1) == ' ') {
+                continue;
+            }
+            ss += now;
+        }
+        char[] arr = ss.toCharArray();
+        reverseWords(arr, 0, arr.length - 1);
+        for (int i = 0, j = 0; (i < arr.length); ) {
+            while (j < arr.length && arr[j] != ' ') {
+                j++;
+            }
+            reverseWords(arr, i, j - 1);
+            i = j + 1;
+            j = i;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (char c : arr) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+
+    public void reverseWords(char[] arr, int l, int r) {
+        while (l < r) {
+            char temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            l++;
+            r--;
+        }
+    }
+
     public static void main(String[] args) {
         String s = " a good   example ";
-        System.out.println(new ReverseWords151().reverseWords(s));
+        System.out.println(new ReverseWords151().reverseWordsNew(s));
     }
 }

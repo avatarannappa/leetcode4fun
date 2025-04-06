@@ -25,6 +25,16 @@ public class Array2ListUtil {
                 .orElseGet(() -> new int[0]);
     }
 
+    public static int[][] convertToPrimitive2d(Integer[][] integerArray) {
+        int[][] result = new int[integerArray.length][integerArray[0].length];
+        for (int i = 0; i < integerArray.length; i++) {
+            for (int j = 0; j < integerArray[i].length; j++) {
+                result[i][j] = integerArray[i][j];
+            }
+        }
+        return result;
+    }
+
     //  int[]转Integer[]
     public static Integer[] convertToWrapper(int[] primitiveArray) {
         return Optional.ofNullable(primitiveArray)
