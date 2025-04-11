@@ -1,7 +1,13 @@
 package test;
 
-public class Singleton {
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
+public class Singleton {
+    
+    Map<String, Integer> map = Collections.synchronizedMap(new LinkedHashMap<>());
+    
     private static Singleton instance;
 
     private Singleton() {
