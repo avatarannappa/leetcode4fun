@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * 64. 最小路径和.
  *
@@ -29,6 +31,61 @@ public class MinPathSum64 {
             // System.out.println(Arrays.toString(grid[j]));
         }
         return grid[n][m];
+    }
+
+    int[][] grid;
+    int m;
+    int n;
+    int min = Integer.MAX_VALUE;
+    int[][] memo;
+
+    public int minPathSumMemo(int[][] grid) {
+        // 记忆化搜索
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        memo = new int[m][n];
+        for (int[] row : memo) {
+            Arrays.fill(row, -1);
+        }
+        return dfsMemo(m - 1, n - 1);
+    }
+
+    public int dfsMemo(int i, int j) {
+        if (i < 0 || j < 0) {
+            return Integer.MAX_VALUE;
+        }
+        if (i == 0 && j == 0) {
+            return grid[i][j];
+        }
+        if (memo[i][j] != -1) {
+            return memo[i][j];
+        }
+        memo[i][j] = Math.min(dfsMemo(i, j - 1), dfsMemo(i - 1, j)) + grid[i][j];
+        return memo[i][j];
+    }
+
+    public int minPathSumDfs(int[][] grid) {
+        // 超时
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        dfs(0, 0, 0);
+        return min;
+    }
+
+    public void dfs(int i, int j, int sum) {
+        if (i == m - 1 && j == n - 1) {
+            min = Math.min(min, sum + grid[i][j]);
+            return;
+        }
+        sum += grid[i][j];
+        if (i + 1 < m) {
+            dfs(i + 1, j, sum);
+        }
+        if (j + 1 < n) {
+            dfs(i, j + 1, sum);
+        }
     }
 
     public static void main(String[] args) {
