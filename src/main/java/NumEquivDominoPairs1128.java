@@ -7,8 +7,23 @@ import java.util.Map;
  *
  * @author avatarannappa
  * @version 1.0, 2021/1/26
+ * @version 1.1， 2025/5/4
  */
 public class NumEquivDominoPairs1128 {
+
+    public int numEquivDominoPairsNew(int[][] dominoes) {
+        // 规律 + 组合
+        int ans = 0;
+
+        int[] arr = new int[100];
+        for (int[] d : dominoes) {
+            int key = d[0] < d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
+            ans += arr[key];
+            arr[key]++;
+        }
+
+        return ans;
+    }
 
     public int numEquivDominoPairs(int[][] dominoes) {
         int res = 0;
