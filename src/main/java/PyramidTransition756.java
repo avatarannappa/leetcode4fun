@@ -1,5 +1,12 @@
 import java.util.*;
 
+/**
+ * 756. 金字塔转换矩阵.
+ * medium
+ *
+ * @author avatarannappa
+ * @version 1.0, 2025/12/29
+ */
 public class PyramidTransition756 {
     public boolean pyramidTransition(String bottom, List<String> allowed) {
         // 三角形底部两个字母 -> [三角形顶部字母]
