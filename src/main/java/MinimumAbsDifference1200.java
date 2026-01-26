@@ -32,9 +32,31 @@ public class MinimumAbsDifference1200 {
         return ans;
     }
 
+    public List<List<Integer>> minimumAbsDifference2(int[] arr) {
+        // 一边遍历，关键是排序
+        Arrays.sort(arr);
+        List<List<Integer>> ans = new ArrayList<>();
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] - arr[i - 1] == min) {
+                List<Integer> tuple = new LinkedList<>();
+                tuple.add(arr[i - 1]);
+                tuple.add(arr[i]);
+                ans.add(tuple);
+            } else if (arr[i] - arr[i - 1] < min) {
+                min = Math.min(min, arr[i] - arr[i - 1]);
+                List<Integer> tuple = new LinkedList<>();
+                tuple.add(arr[i - 1]);
+                tuple.add(arr[i]);
+                ans.clear();
+                ans.add(tuple);
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {3, 8, -10, 23, 19, -4, -14, 27};
-        // [[-14,-10],[19,23],[23,27]]
-        System.out.println(new MinimumAbsDifference1200().minimumAbsDifference(arr));
+        int[] arr = {40, 11, 26, 27, -20};
+        System.out.println(new MinimumAbsDifference1200().minimumAbsDifference2(arr));
     }
 }
